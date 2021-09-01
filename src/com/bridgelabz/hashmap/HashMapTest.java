@@ -14,8 +14,8 @@ public class HashMapTest {
 			myLinkedHashmap.add(word, value);
 		}
 		System.out.println(myLinkedHashmap);
-		int frequency = myLinkedHashmap.get("paranoid");
-		System.out.println("Paranoid frequency: "+frequency);
+		myLinkedHashmap.remove("avoidable");
+		System.out.println("\n\nAfter removing avoidable: "+myLinkedHashmap);
 	}
 
 }
