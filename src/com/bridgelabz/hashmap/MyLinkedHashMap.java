@@ -18,6 +18,7 @@ public class MyLinkedHashMap<K, V> {
 	private int getBucketIndex(K key) {
 		int hashCode = Math.abs(key.hashCode());
 		int index = hashCode % numBuckets;
+		//System.out.println("Key: "+key+", HashCode: "+hashCode+", index: "+index);
 		return index;
 	}
 
@@ -49,6 +50,24 @@ public class MyLinkedHashMap<K, V> {
 
 	public String toString() {
 		return "“MyLinkedHashMap List{" + myBucketArray + '}';
+	}
+
+	public void remove(K key) {
+		int index = this.getBucketIndex(key) ;
+		MyLinkedList<K> myLinkedList = this.myBucketArray.get(index) ;
+		if(myLinkedList == null) {
+			System.out.println("Empty linked list");
+			return;
+		}
+		MyMapNode<K,V> myMapNode = (MyMapNode<K,V>) myLinkedList.search(key) ;
+
+		if (myMapNode == null) {
+			System.out.println("Key not found");
+			return;
+		}
+		else {
+			myLinkedList.remove(key);
+		}
 	}
 }
 
